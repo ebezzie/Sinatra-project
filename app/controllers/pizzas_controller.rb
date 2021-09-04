@@ -14,7 +14,7 @@ class PizzasController < ApplicationController
     end
   
     post '/pizzas' do
-      @pizzas = Pizza.create(name: params[:name], description: params[:description], ingredients: params[:ingredients], user: current_user)
+      @pizza = Pizza.create(name: params[:name], description: params[:description], ingredients: params[:ingredients], user: current_user)
         
       if @pizza.errors.any?
         erb :"/recipes/new_pizza"
@@ -45,7 +45,6 @@ class PizzasController < ApplicationController
   
     patch '/pizzas/:id' do
       @pizza = Pizza.find_by(id: params[:id])
-      # not_found if !@item
       @pizza.update(name: params[:name], description: params[:description], ingredients: params[:ingredients], user: current_user)
               
       if @pizza.errors.any?
@@ -56,7 +55,7 @@ class PizzasController < ApplicationController
     end
   
     delete '/pizzas/:id' do
-     @pizza = Pizza.find_by(id: params[:id])
+      pizza = Pizza.find_by(id: params[:id])
       pizza.delete if pizza.user_id == current_user.id
       
       redirect '/pizzas'
