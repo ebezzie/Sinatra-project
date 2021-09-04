@@ -9,7 +9,7 @@ class PizzasController < ApplicationController
   
     get '/pizzas/new' do
       authenticate
-      @pizzas = Pizza.new
+      @pizza = Pizza.new
       erb :"/recipes/new_pizza"
     end
   
