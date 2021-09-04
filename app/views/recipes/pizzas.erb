@@ -1,0 +1,20 @@
+<% if @search %>
+	<h3>Showing matching pizza '<%= @word %>':</h3>
+    <% else %>
+    <h3>Pizza Palace!!!!!!</h3>
+    <p>Welcome, <%= @user.username %>! Here's all the Pizzas:<br>
+<% end %>
+
+<% @pizzas.each do |pizza| %>
+<p><a href="/pizzas/<%= pizza.id %>"><%= pizza.name %></a> by <em>
+<a href="/users/<%= pizza.user.username %>"><%= pizza.user.username %></a></em></p>
+<% end %><br><br>
+
+<form action='/pizzas/search' method="post">
+    <p><label for="search">Search for a pizza:</label>
+    <input type="text" id="search" name="search">
+    <input type="submit"></p>
+</form>
+<br><br>
+<p class="center"><a href="/pizzas/new">Create new pizza recipe</a></p>
+<p class="center">Go back to <a href='/'>Main Page</a></p>
