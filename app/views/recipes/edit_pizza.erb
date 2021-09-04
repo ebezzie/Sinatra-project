@@ -1,0 +1,33 @@
+<h3>Edit Your Item</h3>
+
+<% if @pizza.errors.any? %>
+  <div id="error">
+    <h2><%= @pizza.errors.count %> error(s) prohibited new pizza creation:</h2>
+ 
+    <ul>
+    <% @pizza.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<form method="post" action="/pizzas/<%= @pizza.id %>">
+    <p><input id="hidden" type="hidden" name="_method" value="patch">
+
+    <label for="name">name:</label>
+    <input type="text" id="name" name="name" value="<%= @pizza.name %>"><br><br>
+
+    <label for="description">Describe your pizza, feel free to add cooking instructions here as well!</label><br>
+    <textarea id="description" name="description" rows="10" cols="40" ><%= @pizza.description %></textarea><br><br>
+
+    <label for="ingredients">List all of the ingredients here!</label><br>
+    <textarea id="ingredients" name="ingredients" rows="10" cols="40"><%= @pizza.ingredients %></textarea><br><br>
+
+    <button type="submit" alt="Edit Pizza">Edit your pizza</button></p>
+</form> 
+
+<p class="center"><a href="/pizzas/<%= @pizza.id %>">Back to Pizza</a> || 
+<p class="center"><a href="/pizzas">Browse All Pizzas</a> 
+|| <a href='/'>Main Page</a></p>
