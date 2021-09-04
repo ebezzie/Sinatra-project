@@ -1,0 +1,29 @@
+<% if @failed %>
+	<div id="error">
+		<p>You cannot edit another user's pizza</p>
+	</div>
+<% end %>
+
+<% if @pizza.user_id == current_user.id %>
+<table>
+  <tr>
+    <td><form action="/pizzas/<%= @pizza.id %>/edit" method="get"><p class="right">Options: 
+      <button type="submit" alt="Edit pizza">Edit Pizza</button>
+        </p></form></td>
+    <td><form method="POST" action="/pizzas/<%= @pizza.id %>"><p class="left">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <button type="submit" alt="Delete pizza">Delete Pizza</button>
+      </p></form></td>
+  </tr>
+</table>
+<% end %>
+
+<h3><%= @pizza.name %></h3>
+<p>About this pizza: <br>
+<%= @pizza.description %></p>
+<p>Here are the ingredients: <br> <%= @pizza.ingredients %> </p>
+
+<p class="center">Created by <a href="/users/<%= @pizza.user.username %>"><%= @pizza.user.username %></a>
+<br><br><a href="mailto:<%= @pizza.user.email %>">Click here</a> to email the creator.</p>
+
+<p class="center"><a href="/pizzas">Browse All Pizzas</a> || <a href='/'>Main Page</a></p>
