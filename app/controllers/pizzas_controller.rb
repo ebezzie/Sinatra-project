@@ -4,7 +4,7 @@ class PizzasController < ApplicationController
       authenticate
       @user = current_user
       @pizzas = Pizza.all
-      erb :"recipes/pizza"
+      erb :"recipes/pizzas"
     end
   
     get '/pizzas/new' do
