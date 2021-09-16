@@ -1,6 +1,6 @@
-# Welcome to Pizza Palace 👋
+# Welcome to Pizza Palace 👋🍕
 
-A place to view tasty new pizza recipes or sharing your recipes with the world.
+A place to view tasty new pizza recipes or to share your recipes with the world.
 
 ### Installing
 
