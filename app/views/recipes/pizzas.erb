@@ -1,8 +1,8 @@
 <% if @search %>
 	<h3>Showing matching pizza '<%= @word %>':</h3>
     <% else %>
-    <h3>Pizza Palace!!!!!!</h3>
-    <p>Welcome, <%= @user.username %>! Here's all the Pizzas:<br>
+    <h3>Pizza Palace, the place for pizza &#127829;!</h3>
+    <p>Welcome, <%= @user.username %>! Click on any of the pizzas below to view the recipes.<br>
 <% end %>
 
 <% @pizzas.each do |pizza| %>
@@ -11,10 +11,10 @@
 <% end %><br><br>
 
 <form action='/pizzas/search' method="post">
-    <p><label for="search">Enter a pizza name to search for a pizza:</label>
+    <p><label for="search">Enter a pizza name to search for a recipe:</label>
     <input type="text" id="search" name="search">
-    <input type="submit"></p>
+    <button type="submit" alt="Submit">Find the pizza &#127829;</button></p>
 </form>
 <br><br>
-<p class="center"><a href="/pizzas/new">Create new pizza recipe</a></p>
+<p class="center"><a href="/pizzas/new">Create new pizza recipe</a> &#127829;</p>
 <p class="center">Go back to <a href='/'>Main Page</a></p>
